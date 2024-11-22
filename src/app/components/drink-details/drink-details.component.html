@@ -1,0 +1,11 @@
+<button class="btn btn-primary mb-3" [routerLink]="['..']">Back</button>
+
+<div class="card" *ngIf="drink">
+  <div class="card-body text-center">
+    <h1>{{ drink.name }}</h1>
+    <img class="rounded" [src]="drink.image">
+    <div class="text-muted">{{ drink.price | currency:'EUR' }}</div>
+    <div class="badge bg-primary">{{ drink.category | drinkCategoryLabel }}</div>
+    <div>{{ drink.description }}</div>
+  </div>
+</div>

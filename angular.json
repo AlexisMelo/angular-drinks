@@ -3,18 +3,30 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "angular-drinks-module-19": {
+    "angular-drinks": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
-          "style": "scss",
-          "standalone": false
+          "standalone": false,
+          "skipTests": true,
+          "style": "scss"
         },
         "@schematics/angular:directive": {
-          "standalone": false
+          "standalone": false,
+          "skipTests": true
+        },
+        "@schematics/angular:guard": {
+          "skipTests": true
+        },
+        "@schematics/angular:interceptor": {
+          "skipTests": true
         },
         "@schematics/angular:pipe": {
-          "standalone": false
+          "standalone": false,
+          "skipTests": true
+        },
+        "@schematics/angular:service": {
+          "skipTests": true
         }
       },
       "root": "",
@@ -24,7 +36,17 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/angular-drinks-module-19",
+            "stylePreprocessorOptions": {
+              "sass": {
+                "silenceDeprecations": [
+                  "mixed-decls",
+                  "color-functions",
+                  "global-builtin",
+                  "import"
+                ]
+              }
+            },
+            "outputPath": "dist/angular-drinks",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -71,10 +93,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "angular-drinks-module-19:build:production"
+              "buildTarget": "angular-drinks:build:production"
             },
             "development": {
-              "buildTarget": "angular-drinks-module-19:build:development"
+              "buildTarget": "angular-drinks:build:development"
             }
           },
           "defaultConfiguration": "development"
