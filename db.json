@@ -9,28 +9,28 @@
       "image": "drinks/taiwanese-tea-cafe-latte.png"
     },
     {
+      "id": "34k1",
       "name": "Matcha Latte",
       "price": 1.99,
       "description": "Lorem ipsum",
       "category": "low-sugar",
-      "image": "drinks/matcha-latte.png",
-      "id": "34k1"
+      "image": "drinks/matcha-latte.png"
     },
     {
+      "id": "03b5",
       "name": "Cafe Latte",
       "price": 0.99,
       "description": "Lorem ipsum",
       "category": "low-sugar",
-      "image": "drinks/cafe-latte.png",
-      "id": "03b5"
+      "image": "drinks/cafe-latte.png"
     },
     {
+      "id": "9250",
       "name": "Cappucino",
       "price": 0.99,
       "description": "Lorem ipsum",
       "category": "low-sugar",
-      "image": "drinks/cappuccino.png",
-      "id": "9250"
+      "image": "drinks/cappuccino.png"
     },
     {
       "id": "66b7",
