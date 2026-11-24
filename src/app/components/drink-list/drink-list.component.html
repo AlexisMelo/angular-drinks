@@ -1,0 +1,13 @@
+<h2 class="text-center">Menu</h2>
+<p class="text-center">
+  We use freshly ground Arabica beans and recipes of Thailand’s elite baristas
+  to deliver quality and consistency.
+</p>
+<div class="row">
+  <div class="col-6" *ngFor="let drink of drinks">
+    <app-drink-card
+      [drink]="drink"
+      (onClick)="showLog($event)"
+    ></app-drink-card>
+  </div>
+</div>
