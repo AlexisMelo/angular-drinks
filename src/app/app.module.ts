@@ -8,17 +8,24 @@ import { DrinkCardComponent } from './components/drink-card/drink-card.component
 import { registerLocaleData } from '@angular/common';
 import localeFr from '@angular/common/locales/fr';
 import { DrinkCategoryLabelPipe } from './pipes/drink-category-label.pipe';
+import { provideHttpClient } from '@angular/common/http';
 
 registerLocaleData(localeFr);
 
 @NgModule({
-  declarations: [AppComponent, DrinkListComponent, DrinkCardComponent, DrinkCategoryLabelPipe],
+  declarations: [
+    AppComponent,
+    DrinkListComponent,
+    DrinkCardComponent,
+    DrinkCategoryLabelPipe,
+  ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [
     {
       provide: LOCALE_ID,
       useValue: 'fr-FR',
     },
+    provideHttpClient(),
   ],
   bootstrap: [AppComponent],
 })

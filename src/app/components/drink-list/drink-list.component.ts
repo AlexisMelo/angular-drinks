@@ -15,7 +15,7 @@ export class DrinkListComponent implements OnInit {
   drinks: Drink[] = [];
 
   ngOnInit(): void {
-    this.drinks = this.drinkService.getDrinks();
+    this.drinkService.getDrinks().subscribe((drinks) => (this.drinks = drinks));
   }
 
   showLog(drink: Drink) {
