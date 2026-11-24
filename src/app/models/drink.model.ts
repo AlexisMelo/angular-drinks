@@ -3,6 +3,8 @@ export interface Drink {
   name: string;
   price: number;
   description: string;
-  category: 'sweet' | 'low-sugar' | 'no-sugar';
+  category: DrinkCategory;
   image: string;
 }
+
+export type DrinkCategory = 'sweet' | 'low-sugar' | 'no-sugar';
