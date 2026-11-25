@@ -14,6 +14,7 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 import { notFoundInterceptor } from './interceptors/not-found.interceptor';
 import { AdminDrinkListComponent } from './components/admin-drink-list/admin-drink-list.component';
 import { AdminDrinkFormComponent } from './components/admin-drink-form/admin-drink-form.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 registerLocaleData(localeFr);
 
@@ -28,7 +29,7 @@ registerLocaleData(localeFr);
     AdminDrinkListComponent,
     AdminDrinkFormComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule],
+  imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule],
   providers: [
     {
       provide: LOCALE_ID,

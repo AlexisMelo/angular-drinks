@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
+import { DrinkCategory } from '../../models/drink.model';
 
 @Component({
   selector: 'app-admin-drink-form',
@@ -8,6 +10,13 @@ import { Component } from '@angular/core';
   styleUrl: './admin-drink-form.component.scss',
 })
 export class AdminDrinkFormComponent {
+  formGroup = new FormGroup({
+    name: new FormControl<string>(''),
+    price: new FormControl<number>(0),
+    category: new FormControl<DrinkCategory>('sweet'),
+    image: new FormControl<string>(''),
+  });
+
   drinksImageUrls = [
     'drinks/cafe-latte.png',
     'drinks/cappuccino.png',
@@ -16,4 +25,8 @@ export class AdminDrinkFormComponent {
     'drinks/matcha-latte.png',
     'drinks/taiwanese-tea-cafe-latte.png',
   ];
+
+  createDrink() {
+    console.log(this.formGroup);
+  }
 }
