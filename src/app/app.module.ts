@@ -10,6 +10,7 @@ import localeFr from '@angular/common/locales/fr';
 import { DrinkCategoryLabelPipe } from './pipes/drink-category-label.pipe';
 import { provideHttpClient } from '@angular/common/http';
 import { DrinkDetailComponent } from './components/drink-detail/drink-detail.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 registerLocaleData(localeFr);
 
@@ -20,6 +21,7 @@ registerLocaleData(localeFr);
     DrinkCardComponent,
     DrinkCategoryLabelPipe,
     DrinkDetailComponent,
+    NotFoundComponent,
   ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [
