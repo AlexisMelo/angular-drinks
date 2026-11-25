@@ -6,14 +6,10 @@ import { NgFor } from '@angular/common';
 import { DrinkCardComponent } from '../drink-card/drink-card.component';
 
 @Component({
-    selector: 'app-admin-drink-list',
-    templateUrl: './admin-drink-list.component.html',
-    styleUrl: './admin-drink-list.component.scss',
-    imports: [
-        RouterLink,
-        NgFor,
-        DrinkCardComponent,
-    ],
+  selector: 'app-admin-drink-list',
+  templateUrl: './admin-drink-list.component.html',
+  styleUrl: './admin-drink-list.component.scss',
+  imports: [RouterLink, DrinkCardComponent],
 })
 export class AdminDrinkListComponent implements OnInit {
   private drinkService = inject(DrinkService);

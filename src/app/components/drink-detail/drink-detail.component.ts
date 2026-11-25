@@ -7,15 +7,10 @@ import { NgIf, CurrencyPipe } from '@angular/common';
 import { DrinkCategoryLabelPipe } from '../../pipes/drink-category-label.pipe';
 
 @Component({
-    selector: 'app-drink-detail',
-    templateUrl: './drink-detail.component.html',
-    styleUrl: './drink-detail.component.scss',
-    imports: [
-        RouterLink,
-        NgIf,
-        CurrencyPipe,
-        DrinkCategoryLabelPipe,
-    ],
+  selector: 'app-drink-detail',
+  templateUrl: './drink-detail.component.html',
+  styleUrl: './drink-detail.component.scss',
+  imports: [RouterLink, CurrencyPipe, DrinkCategoryLabelPipe],
 })
 export class DrinkDetailComponent implements OnInit {
   private drinkService = inject(DrinkService);

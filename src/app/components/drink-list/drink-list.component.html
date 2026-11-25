@@ -4,10 +4,12 @@
   to deliver quality and consistency.
 </p>
 <div class="row">
-  <div class="col-6" *ngFor="let drink of drinks">
-    <app-drink-card
-      [drink]="drink"
-      (onClick)="showLog($event)"
-    ></app-drink-card>
-  </div>
+  @for (drink of drinks; track drink.id) {
+    <div class="col-6">
+      <app-drink-card
+        [drink]="drink"
+        (onClick)="showLog($event)"
+      ></app-drink-card>
+    </div>
+  }
 </div>
