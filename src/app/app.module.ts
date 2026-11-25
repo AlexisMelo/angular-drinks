@@ -19,8 +19,11 @@ import { ReactiveFormsModule } from '@angular/forms';
 registerLocaleData(localeFr);
 
 @NgModule({
-  declarations: [
-    AppComponent,
+  declarations: [AppComponent],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    ReactiveFormsModule,
     DrinkListComponent,
     DrinkCardComponent,
     DrinkCategoryLabelPipe,
@@ -29,7 +32,6 @@ registerLocaleData(localeFr);
     AdminDrinkListComponent,
     AdminDrinkFormComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule],
   providers: [
     {
       provide: LOCALE_ID,

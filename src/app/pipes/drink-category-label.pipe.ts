@@ -1,10 +1,7 @@
 import { Pipe, PipeTransform } from '@angular/core';
 import { DrinkCategory } from '../models/drink.model';
 
-@Pipe({
-  name: 'drinkCategoryLabel',
-  standalone: false,
-})
+@Pipe({ name: 'drinkCategoryLabel', })
 export class DrinkCategoryLabelPipe implements PipeTransform {
   transform(category: DrinkCategory): string {
     switch (category) {

@@ -1,15 +1,21 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { Drink } from '../../models/drink.model';
 import { DrinkService } from '../../services/drink.service';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
+import { NgIf, CurrencyPipe } from '@angular/common';
+import { DrinkCategoryLabelPipe } from '../../pipes/drink-category-label.pipe';
 
 @Component({
-  selector: 'app-drink-detail',
-  standalone: false,
-
-  templateUrl: './drink-detail.component.html',
-  styleUrl: './drink-detail.component.scss',
+    selector: 'app-drink-detail',
+    templateUrl: './drink-detail.component.html',
+    styleUrl: './drink-detail.component.scss',
+    imports: [
+        RouterLink,
+        NgIf,
+        CurrencyPipe,
+        DrinkCategoryLabelPipe,
+    ],
 })
 export class DrinkDetailComponent implements OnInit {
   private drinkService = inject(DrinkService);
