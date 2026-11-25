@@ -1,7 +1,7 @@
-<h1>Create Drink</h1>
+<h1>{{ drink ? "Update drink" : "Create Drink" }}</h1>
 <div class="card">
   <div class="card-body">
-    <form [formGroup]="formGroup" (ngSubmit)="createDrink()">
+    <form [formGroup]="formGroup" (ngSubmit)="saveDrink()">
       <div class="mb-3">
         <label class="form-label" for="name">Name</label>
         <input
@@ -144,6 +144,13 @@
         />
       </div>
       <div class="text-end">
+        <button
+          *ngIf="drink"
+          class="btn btn-outline-danger float-start"
+          (click)="deleteDrink()"
+        >
+          Delete
+        </button>
         <button
           type="button"
           class="btn btn-outline-secondary me-2"

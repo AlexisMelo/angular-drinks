@@ -1,20 +1,20 @@
 {
   "drinks": [
     {
-      "id": "92a1",
       "name": "Taiwanese Cafe Latte",
-      "price": 1.99,
+      "price": 3,
       "description": "Lorem ipsum",
       "category": "sweet",
-      "image": "drinks/taiwanese-tea-cafe-latte.png"
+      "image": "drinks/taiwanese-tea-cafe-latte.png",
+      "id": "92a1"
     },
     {
-      "id": "34k1",
       "name": "Matcha Latte",
-      "price": 1.99,
+      "price": 3,
       "description": "Lorem ipsum",
       "category": "low-sugar",
-      "image": "drinks/matcha-latte.png"
+      "image": "drinks/matcha-latte.png",
+      "id": "34k1"
     },
     {
       "id": "03b5",
@@ -47,6 +47,14 @@
       "description": "Lorem Ipsum",
       "category": "no-sugar",
       "image": "drinks/kokuto-cafe-latte.png"
+    },
+    {
+      "id": "33e9",
+      "name": "eeeeeeeeeeeeee",
+      "price": 7,
+      "description": "ededa",
+      "category": "no-sugar",
+      "image": "drinks/taiwanese-tea-cafe-latte.png"
     }
   ]
 }

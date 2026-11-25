@@ -1,5 +1,7 @@
 <div
-  [routerLink]="['/drinks', drink.id]"
+  [routerLink]="
+    isAdmin ? ['/admin/drinks', drink.id, 'edit'] : ['/drinks', drink.id]
+  "
   class="card mb-3"
   (click)="onClick.emit(drink)"
 >

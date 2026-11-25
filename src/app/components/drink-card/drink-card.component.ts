@@ -9,6 +9,9 @@ import { Drink } from '../../models/drink.model';
   styleUrl: './drink-card.component.scss',
 })
 export class DrinkCardComponent {
+  @Input()
+  isAdmin = false;
+
   @Input({ required: true })
   drink!: Drink;
 
