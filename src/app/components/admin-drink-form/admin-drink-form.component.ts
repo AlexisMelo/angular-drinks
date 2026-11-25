@@ -11,17 +11,26 @@ import { DrinkCategory } from '../../models/drink.model';
 })
 export class AdminDrinkFormComponent {
   formGroup = new FormGroup({
-    name: new FormControl<string>('', [
-      Validators.required,
-      Validators.minLength(3),
-    ]),
-    price: new FormControl<number>(0, [
-      Validators.required,
-      Validators.min(0.01),
-    ]),
-    description: new FormControl<string>('', [Validators.required]),
-    category: new FormControl<DrinkCategory>('sweet', [Validators.required]),
-    image: new FormControl<string>('', [Validators.required]),
+    name: new FormControl<string>('', {
+      validators: [Validators.required, Validators.minLength(3)],
+      nonNullable: true,
+    }),
+    price: new FormControl<number>(0, {
+      validators: [Validators.required, Validators.min(0.01)],
+      nonNullable: true,
+    }),
+    description: new FormControl<string>('', {
+      validators: [Validators.required],
+      nonNullable: true,
+    }),
+    category: new FormControl<DrinkCategory>('sweet', {
+      validators: [Validators.required],
+      nonNullable: true,
+    }),
+    image: new FormControl<string>('', {
+      validators: [Validators.required],
+      nonNullable: true,
+    }),
   });
 
   drinksImageUrls = [
@@ -37,7 +46,7 @@ export class AdminDrinkFormComponent {
     this.formGroup.markAllAsTouched();
     if (this.formGroup.invalid) return;
 
-    console.log(this.formGroup);
+    const formValue = this.formGroup.getRawValue();
   }
 
   isInvalidAndTouchedOrDirty(formControl: FormControl) {
