@@ -25,12 +25,12 @@
       "image": "drinks/cafe-latte.png"
     },
     {
-      "id": "9250",
       "name": "Cappucino",
-      "price": 0.99,
+      "price": 150,
       "description": "Lorem ipsum",
       "category": "low-sugar",
-      "image": "drinks/cappuccino.png"
+      "image": "drinks/cappuccino.png",
+      "id": "9250"
     },
     {
       "id": "66b7",
