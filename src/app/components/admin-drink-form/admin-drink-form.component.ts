@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { DrinkCategory } from '../../models/drink.model';
 
 @Component({
@@ -11,10 +11,17 @@ import { DrinkCategory } from '../../models/drink.model';
 })
 export class AdminDrinkFormComponent {
   formGroup = new FormGroup({
-    name: new FormControl<string>(''),
-    price: new FormControl<number>(0),
-    category: new FormControl<DrinkCategory>('sweet'),
-    image: new FormControl<string>(''),
+    name: new FormControl<string>('', [
+      Validators.required,
+      Validators.minLength(3),
+    ]),
+    price: new FormControl<number>(0, [
+      Validators.required,
+      Validators.min(0.01),
+    ]),
+    description: new FormControl<string>('', [Validators.required]),
+    category: new FormControl<DrinkCategory>('sweet', [Validators.required]),
+    image: new FormControl<string>('', [Validators.required]),
   });
 
   drinksImageUrls = [
@@ -27,6 +34,13 @@ export class AdminDrinkFormComponent {
   ];
 
   createDrink() {
+    this.formGroup.markAllAsTouched();
+    if (this.formGroup.invalid) return;
+
     console.log(this.formGroup);
+  }
+
+  isInvalidAndTouchedOrDirty(formControl: FormControl) {
+    return formControl.invalid && (formControl.dirty || formControl.touched);
   }
 }

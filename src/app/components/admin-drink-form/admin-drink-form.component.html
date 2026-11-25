@@ -9,7 +9,23 @@
           type="text"
           class="form-control"
           id="name"
+          [class.is-invalid]="
+            isInvalidAndTouchedOrDirty(formGroup.controls.name)
+          "
         />
+        <small
+          class="text-danger"
+          *ngIf="isInvalidAndTouchedOrDirty(formGroup.controls.name)"
+        >
+          <ng-container *ngIf="formGroup.controls.name.hasError('required')"
+            >The name is required</ng-container
+          >
+          <ng-container *ngIf="formGroup.controls.name.hasError('minlength')"
+            >The name must have at least
+            {{ formGroup.controls.name.errors!["minlength"].requiredLength }}
+            characters</ng-container
+          >
+        </small>
       </div>
       <div class="mb-3">
         <label class="form-label" for="price">Price</label>
@@ -18,7 +34,22 @@
           type="number"
           class="form-control"
           id="price"
-        />
+          [class.is-invalid]="
+            isInvalidAndTouchedOrDirty(formGroup.controls.price)
+          "
+        /><small
+          class="text-danger"
+          *ngIf="isInvalidAndTouchedOrDirty(formGroup.controls.price)"
+        >
+          <ng-container *ngIf="formGroup.controls.price.hasError('required')"
+            >The price is required</ng-container
+          >
+          <ng-container *ngIf="formGroup.controls.price.hasError('min')"
+            >The price must be at least
+            {{ formGroup.controls.price.errors!["min"].min }}
+            characters</ng-container
+          >
+        </small>
       </div>
       <div class="mb-3">
         <label class="form-label" for="description">Description</label>
@@ -27,7 +58,27 @@
           type="number"
           class="form-control"
           id="description"
+          [class.is-invalid]="
+            isInvalidAndTouchedOrDirty(formGroup.controls.description)
+          "
         ></textarea>
+        <small
+          class="text-danger"
+          *ngIf="isInvalidAndTouchedOrDirty(formGroup.controls.description)"
+        >
+          <ng-container
+            *ngIf="formGroup.controls.description.hasError('required')"
+            >The description is required</ng-container
+          >
+          <ng-container
+            *ngIf="formGroup.controls.description.hasError('minlength')"
+            >The description must have at least
+            {{
+              formGroup.controls.description.errors!["minlength"].requiredLength
+            }}
+            characters</ng-container
+          >
+        </small>
       </div>
       <div class="mb-3">
         <label class="form-label d-block">Category</label>
@@ -64,11 +115,27 @@
       </div>
       <div class="mb-3">
         <label class="form-label" for="image">Image</label>
-        <select formControlName="image" class="form-control" id="image">
+        <select
+          [class.is-invalid]="
+            isInvalidAndTouchedOrDirty(formGroup.controls.image)
+          "
+          formControlName="image"
+          class="form-control"
+          id="image"
+        >
           <option *ngFor="let image of drinksImageUrls" [value]="image">
             {{ image }}
           </option>
         </select>
+        <small
+          class="text-danger"
+          *ngIf="
+            isInvalidAndTouchedOrDirty(formGroup.controls.image) &&
+            formGroup.controls.image.hasError('required')
+          "
+        >
+          The image is required
+        </small>
         <img
           *ngIf="formGroup.value.image"
           class="d-block mt-3 rounded"
