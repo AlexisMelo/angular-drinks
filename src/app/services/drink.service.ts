@@ -14,4 +14,8 @@ export class DrinkService {
   getDrinks() {
     return this.httpClient.get<Drink[]>(this.baseUrl);
   }
+
+  getDrink(drinkId: string) {
+    return this.httpClient.get<Drink>(`${this.baseUrl}/${drinkId}`);
+  }
 }

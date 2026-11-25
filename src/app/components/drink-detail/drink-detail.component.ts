@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { Drink } from '../../models/drink.model';
+import { DrinkService } from '../../services/drink.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-drink-detail',
@@ -8,13 +10,19 @@ import { Drink } from '../../models/drink.model';
   templateUrl: './drink-detail.component.html',
   styleUrl: './drink-detail.component.scss',
 })
-export class DrinkDetailComponent {
-  drink: Drink = {
-    id: '92a1',
-    name: 'Taiwanese Cafe Latte',
-    price: 1.99,
-    description: 'Lorem ipsum',
-    category: 'sweet',
-    image: 'drinks/taiwanese-tea-cafe-latte.png',
-  };
+export class DrinkDetailComponent implements OnInit {
+  private drinkServie = inject(DrinkService);
+
+  private activatedRoute = inject(ActivatedRoute);
+
+  drink?: Drink = undefined;
+
+  ngOnInit(): void {
+    this.activatedRoute.paramMap.subscribe((paramMap) => {
+      const drinkId = paramMap.get('drinkId')!;
+      this.drinkServie
+        .getDrink(drinkId)
+        .subscribe((drink) => (this.drink = drink));
+    });
+  }
 }
